@@ -9,7 +9,9 @@ void setup() {
 }
 
 void loop() {
+  Serial.begin(9600);
   Serial.println("TEST");
+  delay(1000);
   // put your main code here, to run repeatedly:
 }
 
