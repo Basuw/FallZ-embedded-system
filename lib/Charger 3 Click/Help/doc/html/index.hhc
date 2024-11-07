@@ -1,0 +1,178 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<HTML><HEAD></HEAD><BODY>
+<OBJECT type="text/site properties">
+<param name="FrameName" value="right">
+</OBJECT>
+<UL>
+<LI><OBJECT type="text/sitemap"><param name="Name" value="Main Page"><param name="Local" value="index.html"><param name="ImageNumber" value="11"></OBJECT>
+<LI><OBJECT type="text/sitemap"><param name="Name" value="Modules"><param name="Local" value="modules.html"><param name="ImageNumber" value="1"></OBJECT>
+  <UL>
+  <LI><OBJECT type="text/sitemap"><param name="Name" value="Charger 3 Click Driver"><param name="Local" value="group__charger3.html"><param name="ImageNumber" value="1"></OBJECT>
+    <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Name" value="Charger 3 Registers Settings"><param name="Local" value="group__charger3__set.html"><param name="ImageNumber" value="1"></OBJECT>
+      <UL>
+      <LI><OBJECT type="text/sitemap"><param name="Name" value="CHARGER3_50T_PROGRAM_DISABLED"><param name="Local" value="group__charger3__set.html#ga043544db406f53653713ac3c3608a1c3"><param name="ImageNumber" value="11"></OBJECT>
+      <LI><OBJECT type="text/sitemap"><param name="Name" value="CHARGER3_50T_PROGRAM_ENABLE"><param name="Local" value="group__charger3__set.html#ga859383d2c53866658fa65c7dec7bb093"><param name="ImageNumber" value="11"></OBJECT>
+      <LI><OBJECT type="text/sitemap"><param name="Name" value="CHARGER3_CTRL_REG_BIT_MASK"><param name="Local" value="group__charger3__set.html#gadda72447e328f604836d9d92d4efb498"><param name="ImageNumber" value="11"></OBJECT>
+      <LI><OBJECT type="text/sitemap"><param name="Name" value="CHARGER3_FUSE_PROGRAM_SUCCESSFUL"><param name="Local" value="group__charger3__set.html#ga73475824eff58c03c4285dd88a9a8f9c"><param name="ImageNumber" value="11"></OBJECT>
+      <LI><OBJECT type="text/sitemap"><param name="Name" value="CHARGER3_FUSE_PROGRAM_UNSUCCESSFUL"><param name="Local" value="group__charger3__set.html#ga77cfb6d7f74a7ff452e5b88018a111f2"><param name="ImageNumber" value="11"></OBJECT>
+      <LI><OBJECT type="text/sitemap"><param name="Name" value="CHARGER3_SET_DEV_ADDR"><param name="Local" value="group__charger3__set.html#gaf71a22f669a5eab4709799d0fa2b3c6a"><param name="ImageNumber" value="11"></OBJECT>
+      <LI><OBJECT type="text/sitemap"><param name="Name" value="CHARGER3_UPDATE_WIPER_POS"><param name="Local" value="group__charger3__set.html#ga1499659ed0b6c0a2f18f0b03b647c9e0"><param name="ImageNumber" value="11"></OBJECT>
+      <LI><OBJECT type="text/sitemap"><param name="Name" value="CHARGER3_WIPER_POS_FROZEN"><param name="Local" value="group__charger3__set.html#gabe35a2838a0a7564a9019c52904309cd"><param name="ImageNumber" value="11"></OBJECT>
+      </UL>
+    <LI><OBJECT type="text/sitemap"><param name="Name" value="Charger 3 MikroBUS Map"><param name="Local" value="group__charger3__map.html"><param name="ImageNumber" value="1"></OBJECT>
+      <UL>
+      <LI><OBJECT type="text/sitemap"><param name="Name" value="CHARGER3_MAP_MIKROBUS"><param name="Local" value="group__charger3__map.html#gaf1270609cbec80580069620414f0e2a9"><param name="ImageNumber" value="11"></OBJECT>
+      </UL>
+    <LI><OBJECT type="text/sitemap"><param name="Name" value="Charger3_command"><param name="Local" value="group__charger3__command.html"><param name="ImageNumber" value="1"></OBJECT>
+      <UL>
+      <LI><OBJECT type="text/sitemap"><param name="Name" value="CHARGER3_COMMAND_NOP"><param name="Local" value="group__charger3__command.html#gad76701e7ff6f90c01e0aafa14f4e6111"><param name="ImageNumber" value="11"></OBJECT>
+      <LI><OBJECT type="text/sitemap"><param name="Name" value="CHARGER3_COMMAND_READ_50TP"><param name="Local" value="group__charger3__command.html#gae927c84cb75328ea695af2aaedcd0dc4"><param name="ImageNumber" value="11"></OBJECT>
+      <LI><OBJECT type="text/sitemap"><param name="Name" value="CHARGER3_COMMAND_READ_CONTROL"><param name="Local" value="group__charger3__command.html#ga285c5ff1ceee3b3d3af14af449f1fcf0"><param name="ImageNumber" value="11"></OBJECT>
+      <LI><OBJECT type="text/sitemap"><param name="Name" value="CHARGER3_COMMAND_READ_MEMORY"><param name="Local" value="group__charger3__command.html#gaf7924ada8c1f69f0bc574e3a3cf2a775"><param name="ImageNumber" value="11"></OBJECT>
+      <LI><OBJECT type="text/sitemap"><param name="Name" value="CHARGER3_COMMAND_READ_RDAC"><param name="Local" value="group__charger3__command.html#ga3662e737447ca9de6380b575bd39671f"><param name="ImageNumber" value="11"></OBJECT>
+      <LI><OBJECT type="text/sitemap"><param name="Name" value="CHARGER3_COMMAND_STORE_WIPER"><param name="Local" value="group__charger3__command.html#ga5237fbd909b7608556ee60f87c8f6084"><param name="ImageNumber" value="11"></OBJECT>
+      <LI><OBJECT type="text/sitemap"><param name="Name" value="CHARGER3_COMMAND_SW_RESET"><param name="Local" value="group__charger3__command.html#gab278402d55b61255df145e3c2774522d"><param name="ImageNumber" value="11"></OBJECT>
+      <LI><OBJECT type="text/sitemap"><param name="Name" value="CHARGER3_COMMAND_SW_SHUTDOWN"><param name="Local" value="group__charger3__command.html#ga0e16795ed436dff7d11d86c36fd5f738"><param name="ImageNumber" value="11"></OBJECT>
+      <LI><OBJECT type="text/sitemap"><param name="Name" value="CHARGER3_COMMAND_WRITE_MEMORY"><param name="Local" value="group__charger3__command.html#ga8bec313b025a0804b2349ebfae3f429b"><param name="ImageNumber" value="11"></OBJECT>
+      <LI><OBJECT type="text/sitemap"><param name="Name" value="CHARGER3_COMMAND_WRITE_RDAC"><param name="Local" value="group__charger3__command.html#gaff5ec766fbe157b1137e522dcfa80e2c"><param name="ImageNumber" value="11"></OBJECT>
+      </UL>
+    <LI><OBJECT type="text/sitemap"><param name="Name" value="Mode"><param name="Local" value="group__mode.html"><param name="ImageNumber" value="1"></OBJECT>
+      <UL>
+      <LI><OBJECT type="text/sitemap"><param name="Name" value="CHARGER3_DISABLE_CHARGING"><param name="Local" value="group__mode.html#gaad88b7c315fe656cacd7d9190cde97d6"><param name="ImageNumber" value="11"></OBJECT>
+      <LI><OBJECT type="text/sitemap"><param name="Name" value="CHARGER3_ENABLE_CHARGING"><param name="Local" value="group__mode.html#ga4ed951ae04dfdb021f2ee759e0ff7a07"><param name="ImageNumber" value="11"></OBJECT>
+      </UL>
+    <LI><OBJECT type="text/sitemap"><param name="Name" value="Status"><param name="Local" value="group__status.html"><param name="ImageNumber" value="1"></OBJECT>
+      <UL>
+      <LI><OBJECT type="text/sitemap"><param name="Name" value="CHARGER3_STATUS_ERROR_FAILURE"><param name="Local" value="group__status.html#gaebe0c33a8a77739d5aac6caa6b22c6b0"><param name="ImageNumber" value="11"></OBJECT>
+      <LI><OBJECT type="text/sitemap"><param name="Name" value="CHARGER3_STATUS_ERROR_SUCCESS"><param name="Local" value="group__status.html#ga88cb75ece1bee0907c3aa94dcdd43739"><param name="ImageNumber" value="11"></OBJECT>
+      </UL>
+    <LI><OBJECT type="text/sitemap"><param name="Name" value="Charger3_dummy"><param name="Local" value="group__charger3__dummy.html"><param name="ImageNumber" value="1"></OBJECT>
+      <UL>
+      <LI><OBJECT type="text/sitemap"><param name="Name" value="CHARGER3_DUMMY"><param name="Local" value="group__charger3__dummy.html#ga84ed6db4bc895882bbdd8f3128c905a8"><param name="ImageNumber" value="11"></OBJECT>
+      </UL>
+    <LI><OBJECT type="text/sitemap"><param name="Name" value="charger3_calc_digipot_res"><param name="Local" value="group__charger3.html#ga4012f2cb24cd4f0f81e63a74605abd8c"><param name="ImageNumber" value="11"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Name" value="charger3_cfg_setup"><param name="Local" value="group__charger3.html#ga5fba0de126b4135cd57267440010c562"><param name="ImageNumber" value="11"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Name" value="charger3_default_cfg"><param name="Local" value="group__charger3.html#gafc472160d2611771e7cd4175a879ef65"><param name="ImageNumber" value="11"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Name" value="charger3_enable_write"><param name="Local" value="group__charger3.html#gaa51ba288a47938bbc8767b845c7fde2a"><param name="ImageNumber" value="11"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Name" value="charger3_generic_read"><param name="Local" value="group__charger3.html#gaf33204c11d2f1d6b62139be7690103e8"><param name="ImageNumber" value="11"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Name" value="charger3_generic_write"><param name="Local" value="group__charger3.html#ga5fe01df831c6c88b4b1f3bd837238ede"><param name="ImageNumber" value="11"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Name" value="charger3_init"><param name="Local" value="group__charger3.html#ga27282fa4f865f9f9bd1d695072c32790"><param name="ImageNumber" value="11"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Name" value="charger3_operating_mode"><param name="Local" value="group__charger3.html#ga3617b3a76e0c292de19a705149e6097b"><param name="ImageNumber" value="11"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Name" value="charger3_read_rdac"><param name="Local" value="group__charger3.html#ga198e729a70b3a2cb82e3a83a80292d0f"><param name="ImageNumber" value="11"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Name" value="charger3_set_current"><param name="Local" value="group__charger3.html#gac47a8f47d0879ea5ef1d7638cb98bdd4"><param name="ImageNumber" value="11"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Name" value="charger3_set_digipot_res"><param name="Local" value="group__charger3.html#ga9a35b4226171c7af9622a88d64dd7aaf"><param name="ImageNumber" value="11"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Name" value="charger3_write_rdac"><param name="Local" value="group__charger3.html#gab62efded90ed0c74ea0b4197da7094e7"><param name="ImageNumber" value="11"></OBJECT>
+    </UL>
+  </UL>
+<LI><OBJECT type="text/sitemap"><param name="Name" value="Data Structures"><param name="Local" value="annotated.html"><param name="ImageNumber" value="1"></OBJECT>
+  <UL>
+  <LI><OBJECT type="text/sitemap"><param name="Name" value="Data Structures"><param name="Local" value="annotated.html"><param name="ImageNumber" value="1"></OBJECT>
+    <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Name" value="charger3_cfg_t"><param name="Local" value="structcharger3__cfg__t.html"><param name="ImageNumber" value="1"></OBJECT>
+      <UL>
+      <LI><OBJECT type="text/sitemap"><param name="Name" value="i2c_address"><param name="Local" value="structcharger3__cfg__t.html#afd5dbf719bae2b1ea9260a55e7c289cf"><param name="ImageNumber" value="11"></OBJECT>
+      <LI><OBJECT type="text/sitemap"><param name="Name" value="i2c_speed"><param name="Local" value="structcharger3__cfg__t.html#a5cb25c23df32f8ba7817bed4de899425"><param name="ImageNumber" value="11"></OBJECT>
+      <LI><OBJECT type="text/sitemap"><param name="Name" value="scl"><param name="Local" value="structcharger3__cfg__t.html#ac5909ef3bd73ac3d682f91bb79baa56f"><param name="ImageNumber" value="11"></OBJECT>
+      <LI><OBJECT type="text/sitemap"><param name="Name" value="sda"><param name="Local" value="structcharger3__cfg__t.html#adc3dc5e0cc6fe9e112104a64a9bd8c61"><param name="ImageNumber" value="11"></OBJECT>
+      </UL>
+    <LI><OBJECT type="text/sitemap"><param name="Name" value="charger3_t"><param name="Local" value="structcharger3__t.html"><param name="ImageNumber" value="1"></OBJECT>
+      <UL>
+      <LI><OBJECT type="text/sitemap"><param name="Name" value="i2c"><param name="Local" value="structcharger3__t.html#a9ba6cb97d8a7d4bcf62f906d8b20adc3"><param name="ImageNumber" value="11"></OBJECT>
+      <LI><OBJECT type="text/sitemap"><param name="Name" value="slave_address"><param name="Local" value="structcharger3__t.html#ac93868aeda435dfb685a0a0020e5c7a4"><param name="ImageNumber" value="11"></OBJECT>
+      </UL>
+    </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Name" value="Data Structure Index"><param name="Local" value="classes.html"><param name="ImageNumber" value="11"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Name" value="Data Fields"><param name="Local" value="functions.html"><param name="ImageNumber" value="1"></OBJECT>
+    <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Name" value="All"><param name="Local" value="functions.html"><param name="ImageNumber" value="11"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Name" value="Variables"><param name="Local" value="functions_vars.html"><param name="ImageNumber" value="11"></OBJECT>
+    </UL>
+  </UL>
+<LI><OBJECT type="text/sitemap"><param name="Name" value="Files"><param name="Local" value="files.html"><param name="ImageNumber" value="1"></OBJECT>
+  <UL>
+  <LI><OBJECT type="text/sitemap"><param name="Name" value="File List"><param name="Local" value="files.html"><param name="ImageNumber" value="1"></OBJECT>
+    <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Name" value="cmake"><param name="Local" value="dir_a5bdbfbbaa7895161d62825676df7980.html"><param name="ImageNumber" value="1"></OBJECT>
+      <UL>
+      <LI><OBJECT type="text/sitemap"><param name="Name" value="charger3"><param name="Local" value="dir_2ea02ccc847698a5e7e270fcc6679b8d.html"><param name="ImageNumber" value="1"></OBJECT>
+        <UL>
+        <LI><OBJECT type="text/sitemap"><param name="Name" value="example"><param name="Local" value="dir_d335fd86d2291540ff163e2bc43524b8.html"><param name="ImageNumber" value="1"></OBJECT>
+          <UL>
+          <LI><OBJECT type="text/sitemap"><param name="Name" value="main.c"><param name="Local" value="main_8c.html"><param name="ImageNumber" value="1"></OBJECT>
+            <UL>
+            <LI><OBJECT type="text/sitemap"><param name="Name" value="application_init"><param name="Local" value="main_8c.html#a0e95431f48ee71c1040217b94766ffcf"><param name="ImageNumber" value="11"></OBJECT>
+            <LI><OBJECT type="text/sitemap"><param name="Name" value="application_task"><param name="Local" value="main_8c.html#a362899c9f270bb296179185fd96b878e"><param name="ImageNumber" value="11"></OBJECT>
+            <LI><OBJECT type="text/sitemap"><param name="Name" value="main"><param name="Local" value="main_8c.html#a840291bc02cba5474a4cb46a9b9566fe"><param name="ImageNumber" value="11"></OBJECT>
+            </UL>
+          </UL>
+        <LI><OBJECT type="text/sitemap"><param name="Name" value="lib_charger3"><param name="Local" value="dir_ed756a25c8f28a616a19b96ccf6f3755.html"><param name="ImageNumber" value="1"></OBJECT>
+          <UL>
+          <LI><OBJECT type="text/sitemap"><param name="Name" value="include"><param name="Local" value="dir_b2308cbca964d06307381a80a2cac621.html"><param name="ImageNumber" value="1"></OBJECT>
+            <UL>
+            <LI><OBJECT type="text/sitemap"><param name="Name" value="charger3.h"><param name="Local" value="charger3_8h.html"><param name="ImageNumber" value="1"></OBJECT>
+              <UL>
+              <LI><OBJECT type="text/sitemap"><param name="Name" value="charger3_t"><param name="Local" value="structcharger3__t.html"><param name="ImageNumber" value="1"></OBJECT>
+                <UL>
+                <LI><OBJECT type="text/sitemap"><param name="Name" value="i2c"><param name="Local" value="structcharger3__t.html#a9ba6cb97d8a7d4bcf62f906d8b20adc3"><param name="ImageNumber" value="11"></OBJECT>
+                <LI><OBJECT type="text/sitemap"><param name="Name" value="slave_address"><param name="Local" value="structcharger3__t.html#ac93868aeda435dfb685a0a0020e5c7a4"><param name="ImageNumber" value="11"></OBJECT>
+                </UL>
+              <LI><OBJECT type="text/sitemap"><param name="Name" value="charger3_cfg_t"><param name="Local" value="structcharger3__cfg__t.html"><param name="ImageNumber" value="1"></OBJECT>
+                <UL>
+                <LI><OBJECT type="text/sitemap"><param name="Name" value="i2c_address"><param name="Local" value="structcharger3__cfg__t.html#afd5dbf719bae2b1ea9260a55e7c289cf"><param name="ImageNumber" value="11"></OBJECT>
+                <LI><OBJECT type="text/sitemap"><param name="Name" value="i2c_speed"><param name="Local" value="structcharger3__cfg__t.html#a5cb25c23df32f8ba7817bed4de899425"><param name="ImageNumber" value="11"></OBJECT>
+                <LI><OBJECT type="text/sitemap"><param name="Name" value="scl"><param name="Local" value="structcharger3__cfg__t.html#ac5909ef3bd73ac3d682f91bb79baa56f"><param name="ImageNumber" value="11"></OBJECT>
+                <LI><OBJECT type="text/sitemap"><param name="Name" value="sda"><param name="Local" value="structcharger3__cfg__t.html#adc3dc5e0cc6fe9e112104a64a9bd8c61"><param name="ImageNumber" value="11"></OBJECT>
+                </UL>
+              <LI><OBJECT type="text/sitemap"><param name="Name" value="CHARGER3_50T_PROGRAM_DISABLED"><param name="Local" value="group__charger3__set.html#ga043544db406f53653713ac3c3608a1c3"><param name="ImageNumber" value="11"></OBJECT>
+              <LI><OBJECT type="text/sitemap"><param name="Name" value="CHARGER3_50T_PROGRAM_ENABLE"><param name="Local" value="group__charger3__set.html#ga859383d2c53866658fa65c7dec7bb093"><param name="ImageNumber" value="11"></OBJECT>
+              <LI><OBJECT type="text/sitemap"><param name="Name" value="CHARGER3_COMMAND_NOP"><param name="Local" value="group__charger3__command.html#gad76701e7ff6f90c01e0aafa14f4e6111"><param name="ImageNumber" value="11"></OBJECT>
+              <LI><OBJECT type="text/sitemap"><param name="Name" value="CHARGER3_COMMAND_READ_50TP"><param name="Local" value="group__charger3__command.html#gae927c84cb75328ea695af2aaedcd0dc4"><param name="ImageNumber" value="11"></OBJECT>
+              <LI><OBJECT type="text/sitemap"><param name="Name" value="CHARGER3_COMMAND_READ_CONTROL"><param name="Local" value="group__charger3__command.html#ga285c5ff1ceee3b3d3af14af449f1fcf0"><param name="ImageNumber" value="11"></OBJECT>
+              <LI><OBJECT type="text/sitemap"><param name="Name" value="CHARGER3_COMMAND_READ_MEMORY"><param name="Local" value="group__charger3__command.html#gaf7924ada8c1f69f0bc574e3a3cf2a775"><param name="ImageNumber" value="11"></OBJECT>
+              <LI><OBJECT type="text/sitemap"><param name="Name" value="CHARGER3_COMMAND_READ_RDAC"><param name="Local" value="group__charger3__command.html#ga3662e737447ca9de6380b575bd39671f"><param name="ImageNumber" value="11"></OBJECT>
+              <LI><OBJECT type="text/sitemap"><param name="Name" value="CHARGER3_COMMAND_STORE_WIPER"><param name="Local" value="group__charger3__command.html#ga5237fbd909b7608556ee60f87c8f6084"><param name="ImageNumber" value="11"></OBJECT>
+              <LI><OBJECT type="text/sitemap"><param name="Name" value="CHARGER3_COMMAND_SW_RESET"><param name="Local" value="group__charger3__command.html#gab278402d55b61255df145e3c2774522d"><param name="ImageNumber" value="11"></OBJECT>
+              <LI><OBJECT type="text/sitemap"><param name="Name" value="CHARGER3_COMMAND_SW_SHUTDOWN"><param name="Local" value="group__charger3__command.html#ga0e16795ed436dff7d11d86c36fd5f738"><param name="ImageNumber" value="11"></OBJECT>
+              <LI><OBJECT type="text/sitemap"><param name="Name" value="CHARGER3_COMMAND_WRITE_MEMORY"><param name="Local" value="group__charger3__command.html#ga8bec313b025a0804b2349ebfae3f429b"><param name="ImageNumber" value="11"></OBJECT>
+              <LI><OBJECT type="text/sitemap"><param name="Name" value="CHARGER3_COMMAND_WRITE_RDAC"><param name="Local" value="group__charger3__command.html#gaff5ec766fbe157b1137e522dcfa80e2c"><param name="ImageNumber" value="11"></OBJECT>
+              <LI><OBJECT type="text/sitemap"><param name="Name" value="CHARGER3_CTRL_REG_BIT_MASK"><param name="Local" value="group__charger3__set.html#gadda72447e328f604836d9d92d4efb498"><param name="ImageNumber" value="11"></OBJECT>
+              <LI><OBJECT type="text/sitemap"><param name="Name" value="CHARGER3_DISABLE_CHARGING"><param name="Local" value="group__mode.html#gaad88b7c315fe656cacd7d9190cde97d6"><param name="ImageNumber" value="11"></OBJECT>
+              <LI><OBJECT type="text/sitemap"><param name="Name" value="CHARGER3_DUMMY"><param name="Local" value="group__charger3__dummy.html#ga84ed6db4bc895882bbdd8f3128c905a8"><param name="ImageNumber" value="11"></OBJECT>
+              <LI><OBJECT type="text/sitemap"><param name="Name" value="CHARGER3_ENABLE_CHARGING"><param name="Local" value="group__mode.html#ga4ed951ae04dfdb021f2ee759e0ff7a07"><param name="ImageNumber" value="11"></OBJECT>
+              <LI><OBJECT type="text/sitemap"><param name="Name" value="CHARGER3_FUSE_PROGRAM_SUCCESSFUL"><param name="Local" value="group__charger3__set.html#ga73475824eff58c03c4285dd88a9a8f9c"><param name="ImageNumber" value="11"></OBJECT>
+              <LI><OBJECT type="text/sitemap"><param name="Name" value="CHARGER3_FUSE_PROGRAM_UNSUCCESSFUL"><param name="Local" value="group__charger3__set.html#ga77cfb6d7f74a7ff452e5b88018a111f2"><param name="ImageNumber" value="11"></OBJECT>
+              <LI><OBJECT type="text/sitemap"><param name="Name" value="CHARGER3_MAP_MIKROBUS"><param name="Local" value="group__charger3__map.html#gaf1270609cbec80580069620414f0e2a9"><param name="ImageNumber" value="11"></OBJECT>
+              <LI><OBJECT type="text/sitemap"><param name="Name" value="CHARGER3_SET_DEV_ADDR"><param name="Local" value="group__charger3__set.html#gaf71a22f669a5eab4709799d0fa2b3c6a"><param name="ImageNumber" value="11"></OBJECT>
+              <LI><OBJECT type="text/sitemap"><param name="Name" value="CHARGER3_STATUS_ERROR_FAILURE"><param name="Local" value="group__status.html#gaebe0c33a8a77739d5aac6caa6b22c6b0"><param name="ImageNumber" value="11"></OBJECT>
+              <LI><OBJECT type="text/sitemap"><param name="Name" value="CHARGER3_STATUS_ERROR_SUCCESS"><param name="Local" value="group__status.html#ga88cb75ece1bee0907c3aa94dcdd43739"><param name="ImageNumber" value="11"></OBJECT>
+              <LI><OBJECT type="text/sitemap"><param name="Name" value="CHARGER3_UPDATE_WIPER_POS"><param name="Local" value="group__charger3__set.html#ga1499659ed0b6c0a2f18f0b03b647c9e0"><param name="ImageNumber" value="11"></OBJECT>
+              <LI><OBJECT type="text/sitemap"><param name="Name" value="CHARGER3_WIPER_POS_FROZEN"><param name="Local" value="group__charger3__set.html#gabe35a2838a0a7564a9019c52904309cd"><param name="ImageNumber" value="11"></OBJECT>
+              <LI><OBJECT type="text/sitemap"><param name="Name" value="charger3_calc_digipot_res"><param name="Local" value="group__charger3.html#ga4012f2cb24cd4f0f81e63a74605abd8c"><param name="ImageNumber" value="11"></OBJECT>
+              <LI><OBJECT type="text/sitemap"><param name="Name" value="charger3_cfg_setup"><param name="Local" value="group__charger3.html#ga5fba0de126b4135cd57267440010c562"><param name="ImageNumber" value="11"></OBJECT>
+              <LI><OBJECT type="text/sitemap"><param name="Name" value="charger3_default_cfg"><param name="Local" value="group__charger3.html#gafc472160d2611771e7cd4175a879ef65"><param name="ImageNumber" value="11"></OBJECT>
+              <LI><OBJECT type="text/sitemap"><param name="Name" value="charger3_enable_write"><param name="Local" value="group__charger3.html#gaa51ba288a47938bbc8767b845c7fde2a"><param name="ImageNumber" value="11"></OBJECT>
+              <LI><OBJECT type="text/sitemap"><param name="Name" value="charger3_generic_read"><param name="Local" value="group__charger3.html#gaf33204c11d2f1d6b62139be7690103e8"><param name="ImageNumber" value="11"></OBJECT>
+              <LI><OBJECT type="text/sitemap"><param name="Name" value="charger3_generic_write"><param name="Local" value="group__charger3.html#ga5fe01df831c6c88b4b1f3bd837238ede"><param name="ImageNumber" value="11"></OBJECT>
+              <LI><OBJECT type="text/sitemap"><param name="Name" value="charger3_init"><param name="Local" value="group__charger3.html#ga27282fa4f865f9f9bd1d695072c32790"><param name="ImageNumber" value="11"></OBJECT>
+              <LI><OBJECT type="text/sitemap"><param name="Name" value="charger3_operating_mode"><param name="Local" value="group__charger3.html#ga3617b3a76e0c292de19a705149e6097b"><param name="ImageNumber" value="11"></OBJECT>
+              <LI><OBJECT type="text/sitemap"><param name="Name" value="charger3_read_rdac"><param name="Local" value="group__charger3.html#ga198e729a70b3a2cb82e3a83a80292d0f"><param name="ImageNumber" value="11"></OBJECT>
+              <LI><OBJECT type="text/sitemap"><param name="Name" value="charger3_set_current"><param name="Local" value="group__charger3.html#gac47a8f47d0879ea5ef1d7638cb98bdd4"><param name="ImageNumber" value="11"></OBJECT>
+              <LI><OBJECT type="text/sitemap"><param name="Name" value="charger3_set_digipot_res"><param name="Local" value="group__charger3.html#ga9a35b4226171c7af9622a88d64dd7aaf"><param name="ImageNumber" value="11"></OBJECT>
+              <LI><OBJECT type="text/sitemap"><param name="Name" value="charger3_write_rdac"><param name="Local" value="group__charger3.html#gab62efded90ed0c74ea0b4197da7094e7"><param name="ImageNumber" value="11"></OBJECT>
+              </UL>
+            </UL>
+          </UL>
+        </UL>
+      </UL>
+    </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Name" value="Globals"><param name="Local" value="globals.html"><param name="ImageNumber" value="11"></OBJECT>
+    <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Name" value="All"><param name="Local" value="globals.html"><param name="ImageNumber" value="11"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Name" value="Functions"><param name="Local" value="globals_func.html"><param name="ImageNumber" value="11"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Name" value="Macros"><param name="Local" value="globals_defs.html"><param name="ImageNumber" value="11"></OBJECT>
+    </UL>
+  </UL>
+</UL>
+</BODY>
+</HTML>
