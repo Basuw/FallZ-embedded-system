@@ -4,8 +4,8 @@
 #include "GNSS-L86-M33-SOLDERED.h" // Include L86-L33 GNSS Library
 
 // Définir les broches RX et TX pour le module GNSS
-#define GNSS_RX 2  // Broche RX (n'importe quelle broche, ici 3 pour l'exemple)
-#define GNSS_TX 2  // Broche TX (n'importe quelle broche, ici 1 pour l'exemple)
+#define GNSS_RX 17  // Broche RX (n'importe quelle broche, ici 3 pour l'exemple)
+#define GNSS_TX 16  // Broche TX (n'importe quelle broche, ici 1 pour l'exemple)
 
 // Créer un objet pour la bibliothèque GNSS
 GNSS gps(GNSS_TX, GNSS_RX);
@@ -63,6 +63,7 @@ void displayInfo() {
         Serial.print(F(","));
         Serial.print(gps.location.lng(), 6);
     } else {
+        Serial.println(gps.location.lat(), 6);
         Serial.print(F("INVALIDE"));
     }
 
