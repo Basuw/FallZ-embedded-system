@@ -4,7 +4,7 @@ DFRobot_BMP388_I2C sensor(&Wire, sensor.eSDOVDD);
 //DFRobot_BMP390L_I2C sensor(&Wire, sensor.eSDOVDD);
 
 #define CALIBRATE_ABSOLUTE_DIFFERENCE
-#define SEUIL_CHUTE 0.3 
+#define SEUIL_CHUTE 0.35
 
 float last_altitude;
 
