@@ -5,6 +5,8 @@
 */
 
 #include <MKRWAN.h>
+#include <Arduino.h>
+#include "GNSS-L86-M33-SOLDERED.h"
 
 LoRaModem modem;
 
@@ -15,6 +17,21 @@ LoRaModem modem;
 #include "arduino_secrets.h"
 String appEui = appEui;
 String appKey = appKey;
+
+// Définir les broches RX et TX pour le module GNSS
+#define GNSS_RX 13  // Broche RX (n'importe quelle broche, ici 3 pour l'exemple)
+#define GNSS_TX 14  // Broche TX (n'importe quelle broche, ici 1 pour l'exemple)
+
+// Créer un objet pour la bibliothèque GNSS
+GNSS gps(GNSS_TX, GNSS_RX);
+
+// Variable pour suivre le dernier affichage des données GNSS
+unsigned long lastGnssDisplay = 0;
+
+// Déclarations des fonctions
+void setup();
+void loop();
+void displayInfo();
 
 void setup() {
   // put your setup code here, to run once:
@@ -34,10 +51,9 @@ void setup() {
   if (!connected) {
     Serial.println("Something went wrong; are you indoor? Move near a window and retry");
     while (1) {}
-  }else{
-    Serial.println("conencted to lora network !");
   }
 
+  gps.begin();
   // Set poll interval to 60 secs.
   modem.minPollInterval(60);
   // NOTE: independent of this setting, the modem will
@@ -46,29 +62,47 @@ void setup() {
 }
 
 void loop() {
-  Serial.println();
-  Serial.println("Enter a message to send to network");
-  Serial.println("(make sure that end-of-line 'NL' is enabled)");
 
-  while (!Serial.available());
-  String msg = Serial.readStringUntil('#');
+  // Si des données sont reçues sur l'UART du GNSS
+    while (gps.gnssSerial->available() > 0) {
+        // Lire un caractère brut depuis le module GNSS
+        char c = gps.gnssSerial->read();
+        
+        // Passer les données au décodeur GNSS
+        if (gps.encode(c)) {
+            // Si 500 ms se sont écoulées, afficher les nouvelles données décodées
+            if ((unsigned long)(millis() - lastGnssDisplay) > 500UL) {
+                lastGnssDisplay = millis();
+                sendGPSviaLora();
+            }
+        }
+    }
 
-  Serial.println();
-  Serial.print("Sending: " + msg + " - ");
-  for (unsigned int i = 0; i < msg.length(); i++) {
-    Serial.print(msg[i] >> 4, HEX);
-    Serial.print(msg[i] & 0xF, HEX);
-    Serial.print(" ");
-  }
-  Serial.println();
+    // Pas de données dans les 5 premières secondes du démarrage ? Vérifier les câbles !
+    if (millis() > 5000 && gps.charsProcessed() < 10) {
+        Serial.println(F("Aucun GPS détecté : vérifier les câbles."));
+        while (true) {
+            // Un délai est nécessaire pour certains chips comme l'ESP8266.
+            delay(10);
+        }
+    }
+}
 
-  int err;
-  modem.beginPacket();
-  modem.print(msg);
-  err = modem.endPacket(true);
-  if (err > 0) {
-    Serial.println("Message sent correctly!");
-  } else {
-    Serial.println("Error sending message : ");
-  }
+void sendGPSviaLora() {
+    if (gps.location.isValid()) {
+          int err;
+        modem.beginPacket();
+        String gpsLocation = "lat : " + gps.location.lat() + "; long : " + gps.location.lng();
+        Serial.println("message GPS : " + gpsLocation);
+        modem.print(gpsLocation);
+        err = modem.endPacket(true);
+        if (err > 0) {
+          Serial.println("Message sent correctly!");
+        } else {
+          Serial.println("Error sending message : ");
+        }
+    } else {
+        Serial.println(gps.location.lat(), 6);
+        Serial.print(F("INVALIDE"));
+    }
 }
