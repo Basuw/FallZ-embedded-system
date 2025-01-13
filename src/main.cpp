@@ -1,105 +1,84 @@
+#include <MKRWAN.h>
 #include <Adafruit_Sensor.h>
+#include <TinyGPS++.h>
 #include <Arduino.h>
-#include <Wire.h>
-#include "GNSS-L86-M33-SOLDERED.h" // Include L86-L33 GNSS Library
+#include "arduino_secrets.h"
 
-// Définir les broches RX et TX pour le module GNSS
-#define GNSS_RX 17  // Broche RX (n'importe quelle broche, ici 3 pour l'exemple)
-#define GNSS_TX 16  // Broche TX (n'importe quelle broche, ici 1 pour l'exemple)
+LoRaModem modem;
 
 // Créer un objet pour la bibliothèque GNSS
-GNSS gps(GNSS_TX, GNSS_RX);
+TinyGPSPlus gps;
 
-// Variable pour suivre le dernier affichage des données GNSS
-unsigned long lastGnssDisplay = 0;
+// Variables pour les données GPS
+float latitude, longitude, altitude;
+
+unsigned long previousMillis = 0;  // Temps du dernier envoi
+const long interval = 60000;  // Intervalle de 60 secondes (en millisecondes)
 
 // Déclarations des fonctions
 void setup();
 void loop();
-void displayInfo();
+void sendGPSviaLora(TinyGPSPlus gps);
 
-// Fonction setup - exécutée une fois au démarrage
 void setup() {
-    // Initialiser la communication série pour le moniteur série à 115200 bauds
-    Serial.begin(115200);  // Utilisez un baud rate plus élevé si nécessaire
+  // put your setup code here, to run once:
+  Serial.begin(9600);
+  Serial1.begin(9600);
 
-    // Initialiser la communication avec le module GNSS via Serial (TX0/RX0)
-    gps.begin(); // Le GPS va utiliser les broches définies par default (TX0 et RX0)
+  while (!Serial);
+  while (!Serial1);
+  // change this to your regional band (eg. US915, AS923, ...)
+  if (!modem.begin(EU868)) {
+    Serial.println("Failed to start module");
+    while (1) {}
+  };
+  Serial.print("Your module version is: ");
+  Serial.println(modem.version());
+  Serial.print("Your device EUI is: ");
+  Serial.println(modem.deviceEUI());
+
+  int connected = modem.joinOTAA(appEui, appKey);
+  if (!connected) {
+    Serial.println("Something went wrong; are you indoor? Move near a window and retry");
+    while (1) {}
+  }
+
+  // Set poll interval to 60 secs.
+  modem.minPollInterval(60);
+  // NOTE: independent of this setting, the modem will
+  // not allow sending more than one message every 2 minutes,
+  // this is enforced by firmware and can not be changed.
 }
 
-// Fonction loop - exécutée en boucle
 void loop() {
-    // Si des données sont reçues sur l'UART du GNSS, lire et envoyer chaque caractère à la bibliothèque
-    while (gps.gnssSerial->available() > 0) {
-        // Si quelque chose est correctement décodé, afficher les nouvelles données.
-        if (gps.encode(gps.gnssSerial->read())) {
-            // Vérifier si 500 millisecondes se sont écoulées depuis le dernier affichage des données.
-            if ((unsigned long)(millis() - lastGnssDisplay) > 500UL) {
-                // Capturer un nouveau timestamp.
-                lastGnssDisplay = millis();
-
-                // Afficher les nouvelles données.
-                displayInfo();
-            }
-        }
+    unsigned long currentMillis = millis();
+  // Lecture des données GPS
+    while (Serial1.available() > 0) {
+    gps.encode(Serial1.read());
+    
+    // Si on a une lecture complète du GPS
+    if (currentMillis - previousMillis >= interval && gps.location.isUpdated()) {
+        previousMillis = currentMillis;
+        sendGPSviaLora(gps);
     }
-
-    // Pas de données dans les 5 premières secondes du démarrage ? Vérifier les câbles !
-    if (millis() > 5000 && gps.charsProcessed() < 10) {
-        Serial.println(F("Aucun GPS détecté : vérifier les câbles."));
-        while (true) {
-            // Un délai est nécessaire pour certains chips comme l'ESP8266.
-            delay(10);
-        }
-    }
+  }
 }
 
-// Fonction pour afficher les données décodées de la bibliothèque GNSS
-void displayInfo() {
-    // Afficher la latitude et la longitude GPS. Si aucune donnée valide, afficher un message d'erreur.
-    Serial.print(F("Emplacement: "));
+void sendGPSviaLora(TinyGPSPlus gps) {
     if (gps.location.isValid()) {
-        Serial.print(gps.location.lat(), 6);
-        Serial.print(F(","));
-        Serial.print(gps.location.lng(), 6);
+          int err;
+        modem.beginPacket();
+        String gpsLocation = "lat : " + String(gps.location.lat(), 6) + "; long : " + String(gps.location.lng(), 6);
+        Serial.println("message GPS : " + gpsLocation);
+        modem.print(gpsLocation);
+        err = modem.endPacket(true);
+        if (err > 0) {
+          Serial.println("Message sent correctly!");
+        } else {
+          Serial.println("Error sending message : ");
+        }
     } else {
         Serial.println(gps.location.lat(), 6);
         Serial.print(F("INVALIDE"));
     }
-
-    // Afficher la date et l'heure. Si aucune donnée valide, afficher un message d'erreur.
-    Serial.print(F("  Date/Heure: "));
-    if (gps.date.isValid()) {
-        Serial.print(gps.date.month());
-        Serial.print(F("/"));
-        Serial.print(gps.date.day());
-        Serial.print(F("/"));
-        Serial.print(gps.date.year());
-    } else {
-        Serial.print(F("INVALIDE"));
-    }
-
-    Serial.print(F(" "));
-    if (gps.time.isValid()) {
-        if (gps.time.hour() < 10)
-            Serial.print(F("0"));
-        Serial.print(gps.time.hour());
-        Serial.print(F(":"));
-        if (gps.time.minute() < 10)
-            Serial.print(F("0"));
-        Serial.print(gps.time.minute());
-        Serial.print(F(":"));
-        if (gps.time.second() < 10)
-            Serial.print(F("0"));
-        Serial.print(gps.time.second());
-        Serial.print(F("."));
-        if (gps.time.centisecond() < 10)
-            Serial.print(F("0"));
-        Serial.print(gps.time.centisecond());
-    } else {
-        Serial.print(F("INVALIDE"));
-    }
-
-    // Aller à la nouvelle ligne, prêt à afficher de nouvelles données.
-    Serial.println();
 }
