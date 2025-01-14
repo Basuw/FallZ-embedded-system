@@ -8,7 +8,8 @@ import matplotlib.pyplot as plt
 
 # 1. Chargement du dataset
 # Remplacez 'votre_fichier.csv' par le nom réel de votre fichier CSV
-data = pd.read_csv('../data/training_dataset.csv')
+#data = pd.read_csv('../data/training_dataset.csv')
+data = pd.read_csv('../data/data_set_0_val_manquante_converted.csv')
 
 # Suppression de la première ligne (si elle contient des noms de colonnes supplémentaires)
 data = data.iloc[1:].reset_index(drop=True)
