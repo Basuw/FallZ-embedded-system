@@ -31,7 +31,7 @@ const uint32_t heart[] = {
 };
 
 void setup() {
-  Serial.begin(115200);
+  Serial.begin(9600);
   Serial.println("Initialisation du MPU6050...");
   matrix.begin();
   matrix.loadFrame(happy);
@@ -64,17 +64,13 @@ void loop() {
   float gy = radians(gyro.gyro.y);
   float gz = radians(gyro.gyro.z);
 
-  unsigned long currentTime = millis();
-  unsigned long milliseconds = currentTime % 1000;
+    // Envoyer les données via le port série (format CSV)
+  Serial.print(ax); Serial.print("ax, ");
+  Serial.print(ay); Serial.print("ay, ");
+  Serial.print(az); Serial.print("az, ");
+  Serial.print(gx); Serial.print("gx, ");
+  Serial.print(gy); Serial.print("gy, ");
+  Serial.print(gz); Serial.println("gz");
 
-  // Envoyer les données via le port série (format CSV)
-  // Serial.print("t: ");Serial.print(milliseconds);Serial.print(", ");
-  Serial.print("acc_x :"); Serial.print(ax);
-  Serial.print(", acc_y :"); Serial.print(ay);
-  Serial.print(", acc_z :"); Serial.print(az);
-  Serial.print(", gy_x :"); Serial.print(gx);
-  Serial.print(", gy_y :"); Serial.print(gy);
-  Serial.print(", gy_z :"); Serial.println(gz);
-
-  delay(21);
+  delay(1); // Pause de 12ms entre chaque lecture
 }
