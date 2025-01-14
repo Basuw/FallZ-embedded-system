@@ -7,7 +7,7 @@
 Adafruit_MPU6050 mpu;
 
 // Fréquence d'échantillonnage
-#define SAMPLING_RATE 0.01          // 100 Hz
+#define SAMPLING_RATE 0.021          // 100 Hz
 
 // Variables globales
 bool fall_detected = false;

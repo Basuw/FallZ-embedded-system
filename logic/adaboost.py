@@ -30,12 +30,25 @@ adaboost_model = AdaBoostClassifier(base_estimator,
                                      learning_rate=0.59, 
                                      random_state=42)
 
+from sklearn.ensemble import RandomForestClassifier
+
+random_forest_model = RandomForestClassifier(n_estimators=100, 
+                                             max_depth=None, 
+                                             random_state=42)
+
+from sklearn.ensemble import GradientBoostingClassifier
+
+gradient_boosting_model = GradientBoostingClassifier(n_estimators=100, 
+                                                    learning_rate=0.1, 
+                                                    max_depth=3, 
+                                                    random_state=42)
+
 # Entraînement du modèle
-adaboost_model.fit(X_train, y_train)
+random_forest_model.fit(X_train, y_train)
 
 # 5. Évaluation du modèle
 # Prédictions sur les données de test
-y_pred = adaboost_model.predict(X_test)
+y_pred = random_forest_model.predict(X_test)
 
 # Calcul et affichage de l'accuracy
 accuracy = accuracy_score(y_test, y_pred)
@@ -46,7 +59,7 @@ print("\nRapport de classification :\n")
 print(classification_report(y_test, y_pred))
 
 # 6. Visualisation de l'importance des caractéristiques
-feature_importances = adaboost_model.feature_importances_
+feature_importances = random_forest_model.feature_importances_
 
 # Affichage sous forme de barres
 plt.figure(figsize=(10, 6))
