@@ -8,6 +8,7 @@ baud_rate = 115200  # Assurez-vous que le taux de transmission est le même que 
 
 NB_SAMPLE = 200  # Nombre d'échantillons à lire à chaque fois
 SAMPLE_RATE = 0.03  # Taux d'échantillonnage en Hz
+SAMPLE_RATE = 0.021  # Taux d'échantillonnage en Hz
 RECORD_DURATION = 6  # Durée d'enregistrement en secondes
 
 # Ouvrir la connexion série
@@ -24,7 +25,7 @@ with open(filename, mode='w', newline='') as file:
     # Écrire l'en-tête du fichier CSV
     header = ["label"]
     for i in range(NB_SAMPLE):
-        header += [f"acc_x_{i}", f"acc_y_{i}", f"acc_z_{i}", f"gy_x_{i}", f"gy_y_{i}", f"gy_z_{i}"]
+        header += [f"acc_x{i}", f"acc_y{i}", f"acc_z{i}", f"gy_x{i}", f"gy_y{i}", f"gy_z{i}"]
     writer.writerow(header)
 
     print("Enregistrement des données...")
