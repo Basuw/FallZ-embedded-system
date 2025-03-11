@@ -15,9 +15,9 @@ build_firmware:
 test_firmware:
   stage: test
   script:
-    - platformio test
+    - platformio test -vvv
 
 check_code:
   stage: test
   script:
-    - platformio check --severity=low --severity=high --severity=medium --fail-on-defect=medium --fail-on-defect=high
+    - platformio check --severity=low --severity=high --severity=medium --fail-on-defect=medium --fail-on-defect=high --library-dependencies
