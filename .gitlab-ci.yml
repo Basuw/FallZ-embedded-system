@@ -1,0 +1,23 @@
+image: python:3.10
+
+stages:
+  - build
+  - test
+
+before_script:
+  - pip install platformio
+
+build_firmware:
+  stage: build
+  script:
+    - platformio run
+
+test_firmware:
+  stage: test
+  script:
+    - platformio test
+
+check_code:
+  stage: test
+  script:
+    - platformio check --severity=high
