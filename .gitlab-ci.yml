@@ -20,4 +20,4 @@ test_firmware:
 check_code:
   stage: test
   script:
-    - platformio check --severity=high
+    - platformio check --severity=low --fail-on-defect=medium
