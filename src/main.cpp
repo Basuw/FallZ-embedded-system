@@ -7,8 +7,8 @@
 Adafruit_MPU6050 mpu;
 
 // Fréquence d'échantillonnage
-//#define SAMPLING_RATE 0.021          // 48 Hz
-#define SAMPLING_RATE 0.012         // 48real Hz
+//#define SAMPLING_RATE 0.012          // 48 Hz
+#define SAMPLING_RATE 20         // 0.020+0.01 = 0.030 = 33Hz
 
 // Variables globales
 bool fall_detected = false;
@@ -36,6 +36,11 @@ void loop() {
   sensors_event_t a, g, temp;
   mpu.getEvent(&a, &g, &temp);
 
+  // // Get the current time
+  // unsigned long current_time = millis();
+
+  // // Print the current time
+  // Serial.print("Time: "); Serial.print(current_time); Serial.print(" ms, ");
   // m/s^2
   Serial.print("acc_x :"); Serial.print(a.acceleration.x);
   Serial.print(", acc_y :"); Serial.print(a.acceleration.y);

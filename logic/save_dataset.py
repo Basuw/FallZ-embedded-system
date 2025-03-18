@@ -1,71 +1,81 @@
 import serial
-import csv
 import time
+import pandas as pd
+from scipy.stats import skew, kurtosis
 
 # Configuration du port série
-arduino_port = "/dev/tty.usbmodem34B7DA6371802"  # Remplacez par le port série de votre Arduino (par exemple COM3 sous Windows ou /dev/ttyUSB0 sous Linux/Mac)
-baud_rate = 115200  # Assurez-vous que le taux de transmission est le même que celui défini dans l'Arduino
+arduino_port = "/dev/tty.usbmodem34B7DA6371802"  # Remplacez par votre port série
+baud_rate = 115200
 
-NB_SAMPLE = 200  # Nombre d'échantillons à lire à chaque fois
-SAMPLE_RATE = 0.03  # Taux d'échantillonnage en Hz
-SAMPLE_RATE = 0.021  # Taux d'échantillonnage en Hz
-RECORD_DURATION = 6  # Durée d'enregistrement en secondes
+# Durée d'un enregistrement
+recording_duration = 6  # en secondes
 
-# Ouvrir la connexion série
+# Initialisation de la connexion série
 ser = serial.Serial(arduino_port, baud_rate)
-time.sleep(2)  # Attendre que la connexion série soit établie
+time.sleep(2)  # Attendre que la connexion soit établie
 
-# Nom du fichier CSV où les données seront enregistrées
-filename = "output-dataset.csv"
+def read_data():
+    """Lit une ligne de données depuis le port série."""
+    line = ser.readline().decode('utf-8').strip()
+    data = {}
+    parts = line.split(', ')
+    for part in parts:
+        key, value = part.split(' :')
+        data[key] = float(value)
+    return data
 
-# Ouvrir le fichier CSV en mode écriture
-with open(filename, mode='w', newline='') as file:
-    writer = csv.writer(file)
-        
-    # Écrire l'en-tête du fichier CSV
-    header = ["label"]
-    for i in range(NB_SAMPLE):
-        header += [f"acc_x{i}", f"acc_y{i}", f"acc_z{i}", f"gy_x{i}", f"gy_y{i}", f"gy_z{i}"]
-    writer.writerow(header)
+def calculate_statistics(data):
+    """Calcule les statistiques pour les données fournies."""
+    stats = {}
+    for axis in ['x', 'y', 'z']:
+        for sensor in ['acc', 'gy']:
+            key = f"{sensor}_{axis}"
+            stats[f"{key}_min"] = min(data[key])
+            stats[f"{key}_max"] = max(data[key])
+            stats[f"{key}_skewness"] = skew(data[key])
+            stats[f"{key}_kurtosis"] = kurtosis(data[key])
+    return stats
 
-    print("Enregistrement des données...")
+def main():
+    # Initialisation du DataFrame pour sauvegarder les données
+    columns = [
+        'label', 'acc_x_min', 'acc_y_min', 'acc_z_min', 'acc_x_max', 'acc_y_max', 'acc_z_max',
+        'acc_x_skewness', 'acc_y_skewness', 'acc_z_skewness', 'acc_x_kurtosis', 'acc_y_kurtosis', 'acc_z_kurtosis',
+        'gy_x_min', 'gy_y_min', 'gy_z_min', 'gy_x_max', 'gy_y_max', 'gy_z_max',
+        'gy_x_skewness', 'gy_y_skewness', 'gy_z_skewness', 'gy_x_kurtosis', 'gy_y_kurtosis', 'gy_z_kurtosis'
+    ]
+    df = pd.DataFrame(columns=columns)
 
     while True:
-        # Lire les données envoyées par l'Arduino et les enregistrer dans le fichier CSV
-        data_buffer = []
+        # Initialisation des listes pour stocker les données
+        data = {
+            'acc_x': [], 'acc_y': [], 'acc_z': [],
+            'gy_x': [], 'gy_y': [], 'gy_z': []
+        }
+
         start_time = time.time()
-        recording_started = False
+        while time.time() - start_time < recording_duration:
+            sample = read_data()
+            for key in data.keys():
+                data[key].append(sample[key])
 
-        while time.time() - start_time < RECORD_DURATION:
-            if ser.in_waiting > 0:
-                line = ser.readline().decode('utf-8').strip()  # Lire une ligne de données
-                if line:
-                    # Diviser la ligne en valeurs et vérifier la première valeur
-                    data = line.split(',')
-                    if data[0].startswith("acc_x :"):
-                        # Supprimer les préfixes et ajouter les valeurs au buffer
-                        cleaned_data = [value.split(':')[1] for value in data]
-                        data_buffer.append(cleaned_data)
-                        print(f"Enregistrement des données: {cleaned_data}")
-                time.sleep(SAMPLE_RATE)  # Attendre 30 ms avant de prendre le prochain échantillon
+        # Calcul des statistiques
+        stats = calculate_statistics(data)
 
-        # Demander si c'est une chute ou non
-        label = input("Est-ce une chute? (o/n): ").strip().lower()
-        label = 1 if label == "o" else 0
+        # Demander si une chute a eu lieu
+        label = int(input("Y a-t-il eu une chute ? (1 pour oui, 0 pour non) : "))
+        stats['label'] = label
 
-        # Écrire les données dans le fichier CSV
-        for i in range(0, len(data_buffer), 200):
-            row = [label]
-            for j in range(200):
-                if i + j < len(data_buffer):
-                    row.extend(data_buffer[i + j])
-                else:
-                    row.extend([0] * 6)  # Remplir avec des zéros si les données sont insuffisantes
-            writer.writerow(row)
+        # Ajouter les statistiques au DataFrame
+        df = pd.concat([df, pd.DataFrame([stats])], ignore_index=True)
 
-        continuee = input("Continue ? (o/n): ").strip().lower()
-        
-        if continuee == "n":
+        # Sauvegarder les données dans un fichier CSV
+        df.to_csv('../data/data.csv', index=False)
+
+        # Demander si on continue
+        continue_recording = input("Voulez-vous continuer les enregistrements ? (o/n) : ")
+        if continue_recording.lower() != 'o':
             break
 
-        print("Fin de l'enregistrement pour cette période de 6 secondes.")
+if __name__ == "__main__":
+    main()

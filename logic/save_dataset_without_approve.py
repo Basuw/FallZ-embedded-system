@@ -7,8 +7,9 @@ arduino_port = "/dev/tty.usbmodem34B7DA6371802"  # Remplacez par le port série 
 baud_rate = 115200  # Assurez-vous que le taux de transmission est le même que celui défini dans l'Arduino
 
 NB_SAMPLE = 200  # Nombre d'échantillons à lire à chaque fois
-#SAMPLE_RATE = 0.03  # Taux d'échantillonnage en Hz
-SAMPLE_RATE = 0.021  # Taux d'échantillonnage en Hz
+#NB_SAMPLE = 286  # Nombre d'échantillons à lire à chaque fois
+SAMPLE_RATE = 0.03  # Taux d'échantillonnage en Hz
+#SAMPLE_RATE = 0.021  # Taux d'échantillonnage en Hz
 RECORD_DURATION = 6  # Durée d'enregistrement en secondes
 
 # Ouvrir la connexion série
