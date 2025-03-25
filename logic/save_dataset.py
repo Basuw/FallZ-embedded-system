@@ -74,7 +74,7 @@ def main():
 
         # Demander si on continue
         continue_recording = input("Voulez-vous continuer les enregistrements ? (o/n) : ")
-        if continue_recording.lower() != 'o':
+        if continue_recording != 'o':
             break
 
 if __name__ == "__main__":
