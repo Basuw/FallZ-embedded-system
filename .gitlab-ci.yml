@@ -1,23 +1,38 @@
 image: python:3.10
 
 stages:
-  - build
+  - quality_check
   - test
+  - build
 
 before_script:
   - pip install platformio
+
+check_code:
+  stage: quality_check
+  script:
+    - platformio check --severity=low --severity=high --severity=medium --fail-on-defect=medium --fail-on-defect=high
+  only:
+    - merge_requests
+  artifacts:
+    paths:
+      - pio_check_report.json
+    expire_in: 1 day
+
+test_firmware:
+  stage: test
+  script:
+    - platformio test -vvv | tee pio_test_report.txt
+  only:
+    - merge_requests
+  artifacts:
+    paths:
+      - pio_test_report.txt
+    expire_in: 1 day
 
 build_firmware:
   stage: build
   script:
     - platformio run
-
-test_firmware:
-  stage: test
-  script:
-    - platformio test -vvv
-
-check_code:
-  stage: test
-  script:
-    - platformio check --severity=low --severity=high --severity=medium --fail-on-defect=medium --fail-on-defect=high
+  only:
+    - master
